@@ -1,0 +1,102 @@
+# 🐤 Flappy do Zero
+
+**Curso de programação para crianças: construa o jogo Flappy Bird linha por linha, com um avaliador automático que corrige cada capítulo.**
+
+Feito para crianças a partir de ~10 anos, sem nenhuma experiência anterior.
+Linguagem: **Python** com **Pygame Zero**.
+
+## Como o curso funciona
+
+- O jogo é dividido em **10 capítulos pequenos**. Cada capítulo adiciona
+  UMA coisa: a janela, o pássaro, a gravidade, o pulo, os canos...
+- Cada capítulo tem uma pasta com:
+  - **`LICAO.md`** — a lição, explicando cada linha de código
+  - **`jogo.py`** — onde a criança escreve o código dela
+  - **`teste.py`** — o avaliador automático 🤖
+  - **`gabarito.py`** — a solução (só olhar depois de tentar!)
+  - **`jogar.bat` / `testar.bat`** — atalhos de duplo clique no Windows
+- O avaliador roda o jogo da criança **de verdade** (sem abrir janela),
+  simula frames e teclas, e dá feedback em português com dicas:
+
+```
+🐤 Capítulo 4 — O pulo
+✅ a função update() existe
+✅ a função on_key_down() existe
+✅ a gravidade derruba o pássaro
+❌ apertar ESPAÇO faz o pássaro subir
+   💡 Dentro de on_key_down, use:
+      if key == keys.SPACE:
+          velocidade = -8
+```
+
+Importante: o teste verifica o **comportamento**, não se o código está
+igual ao gabarito. Se a criança resolver do jeito dela e funcionar, passa.
+
+## Capítulos
+
+| # | Capítulo | Status |
+|---|----------|--------|
+| 1 | Acendendo a tela (janela + cor de fundo) | ✅ pronto |
+| 2 | O pássaro aparece (Actor, coordenadas) | ✅ pronto |
+| 3 | A gravidade (update, variáveis que mudam) | ✅ pronto |
+| 4 | O pulo (teclado, if, velocidade) | ✅ pronto |
+| 5–10 | Canos, colisão, pontos, game over, polimento | 📋 ver PLANO.md |
+
+## 🪟 Instalação no Windows (guia para os pais)
+
+**1. Instale o Python**
+
+- Baixe em <https://www.python.org/downloads/> (botão amarelo "Download Python")
+- ⚠️ **Na primeira tela da instalação, marque a caixa
+  "Add python.exe to PATH"** — isso é essencial!
+- Depois clique em "Install Now"
+
+**2. Baixe este curso**
+
+Duas opções:
+
+- **Mais fácil:** clique no botão verde **"Code" → "Download ZIP"** aqui
+  no GitHub e extraia a pasta em algum lugar (ex.: Documentos)
+- **Com Git:** `git clone https://github.com/yoda-fj/flappy-do-zero.git`
+
+**3. Instale o Pygame Zero**
+
+Abra o **Prompt de Comando** (tecla Windows, digite `cmd`, Enter) e rode:
+
+```
+pip install pgzero
+```
+
+Se disser que `pip` não é reconhecido, tente `py -m pip install pgzero`.
+
+**4. Comece a jogar (a criança assume daqui 🙂)**
+
+- Abra a pasta `capitulo-01-a-janela` e leia o arquivo `LICAO.md`
+- Para escrever o código, qualquer editor serve: o **IDLE** já vem
+  instalado com o Python; **VS Code** é outra boa opção
+- Para rodar o jogo: duplo clique em `jogar.bat` (ou `pgzrun jogo.py`)
+- Para corrigir o capítulo: duplo clique em `testar.bat` (ou `python teste.py`)
+
+## Dicas para os pais
+
+- **Deixe a criança digitar.** Copiar e colar não ensina; errar e ler a
+  dica do avaliador, sim.
+- Ritmo sugerido: 1 capítulo por sessão (20–40 min cada).
+- O `gabarito.py` existe para destravar, não para copiar de primeira.
+- Se o avaliador passar mas a criança quiser mudar cores, velocidades,
+  posições — ótimo! Experimentar faz parte (os "Desafios extras" no fim
+  de cada lição incentivam isso).
+
+## Estrutura do repositório
+
+```
+flappy-do-zero/
+├── avaliador.py          ← motor dos testes (compartilhado)
+├── capitulo-01-a-janela/
+├── capitulo-02-o-passaro/
+├── capitulo-03-gravidade/
+├── capitulo-04-o-pulo/
+├── ferramentas/          ← scripts de manutenção do curso
+├── PLANO.md              ← roadmap dos capítulos 5–10
+└── requirements.txt
+```

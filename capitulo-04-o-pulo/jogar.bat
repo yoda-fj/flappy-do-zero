@@ -1,3 +1,7 @@
 @echo off
 chcp 65001 >nul
-pgzrun jogo.py
+if exist ..\.venv\Scripts\pgzrun.exe (
+    ..\.venv\Scripts\pgzrun.exe jogo.py
+) else (
+    pgzrun jogo.py
+)

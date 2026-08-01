@@ -69,6 +69,23 @@ pip install pgzero
 
 Se disser que `pip` não é reconhecido, tente `py -m pip install pgzero`.
 
+**3b. (Opcional) Prefere isolar num ambiente virtual (venv)?**
+
+Para uma criança, o passo 3 simples já basta — mas se você quer manter o
+Python do Windows limpo, crie um venv **na pasta do curso**:
+
+```
+cd caminho\para\flappy-do-zero
+py -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+Os arquivos `jogar.bat` e `testar.bat` detectam o `.venv` automaticamente:
+se ele existir, usam o Python dele; se não, usam o global. No terminal,
+lembre de ativar o venv (`.venv\Scripts\activate`) antes de rodar
+`pgzrun jogo.py` ou `python teste.py` na mão.
+
 **4. Comece a jogar (a criança assume daqui 🙂)**
 
 - Abra a pasta `capitulo-01-a-janela` e leia o arquivo `LICAO.md`

@@ -1,6 +1,6 @@
-# 🐤 MEU JOGO — Capítulo 3: A gravidade
-# Código dos Capítulos 1 e 2 (prontos) + suas novas linhas.
-# Siga a LICAO.md e complete os lugares marcados com NOVO.
+# 🐤 Capítulo 03 — VERSÃO COMPLETA (branch solucao)
+# Este é o jogo pronto deste capítulo. No branch main, este arquivo
+# vem vazio para o aluno preencher seguindo a LICAO.md.
 
 import pgzrun
 
@@ -15,7 +15,8 @@ def draw():
     bird.draw()
 
 
-# NOVO NO CAPÍTULO 3: crie a função update() aqui embaixo
+def update():
+    bird.y = bird.y + 3
 
 
 pgzrun.go()

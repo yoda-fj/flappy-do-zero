@@ -1,6 +1,6 @@
-# 🐤 MEU JOGO — Capítulo 8: Pontuação
-# Código dos capítulos anteriores (pronto) + suas novas linhas.
-# Siga a LICAO.md e complete os lugares marcados com NOVO.
+# 🐤 Capítulo 08 — VERSÃO COMPLETA (branch solucao)
+# Este é o jogo pronto deste capítulo. No branch main, este arquivo
+# vem vazio para o aluno preencher seguindo a LICAO.md.
 
 import pgzrun
 
@@ -13,26 +13,25 @@ velocidade = 0
 
 cano = Actor("pipe", (350, 300))
 morreu = False
-
-# NOVO NO CAPÍTULO 8: crie a variável pontos aqui
+pontos = 0
 
 
 def draw():
     screen.fill((135, 206, 235))
     cano.draw()
     bird.draw()
-    # NOVO NO CAPÍTULO 8: mostre o placar aqui (screen.draw.text)
+    screen.draw.text(str(pontos), (180, 30), fontsize=60, color="white")
 
 
 def update():
-    global velocidade, morreu
+    global velocidade, morreu, pontos
     if not morreu:
         velocidade = velocidade + gravidade
         bird.y = bird.y + velocidade
         cano.x = cano.x - 3
         if cano.x < -50:
             cano.x = 450
-            # NOVO NO CAPÍTULO 8: some 1 ponto aqui
+            pontos = pontos + 1
         if bird.colliderect(cano):
             morreu = True
 

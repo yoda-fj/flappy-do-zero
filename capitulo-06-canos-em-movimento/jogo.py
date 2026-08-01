@@ -1,6 +1,6 @@
-# 🐤 MEU JOGO — Capítulo 6: Canos em movimento
-# Código dos capítulos anteriores (pronto) + suas novas linhas.
-# Siga a LICAO.md e complete os lugares marcados com NOVO.
+# 🐤 Capítulo 06 — VERSÃO COMPLETA (branch solucao)
+# Este é o jogo pronto deste capítulo. No branch main, este arquivo
+# vem vazio para o aluno preencher seguindo a LICAO.md.
 
 import pgzrun
 
@@ -24,7 +24,9 @@ def update():
     global velocidade
     velocidade = velocidade + gravidade
     bird.y = bird.y + velocidade
-    # NOVO NO CAPÍTULO 6: mova o cano e faça ele voltar (2 linhas + if)
+    cano.x = cano.x - 3
+    if cano.x < -50:
+        cano.x = 450
 
 
 def on_key_down(key):

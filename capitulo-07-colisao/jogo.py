@@ -1,7 +1,6 @@
-# 🐤 MEU JOGO — Capítulo 7: Colisão
-# Código dos capítulos anteriores (pronto) + suas novas linhas.
-# ATENÇÃO: o update muda bastante neste capítulo — a lição mostra o novo.
-# Siga a LICAO.md e complete os lugares marcados com NOVO.
+# 🐤 Capítulo 07 — VERSÃO COMPLETA (branch solucao)
+# Este é o jogo pronto deste capítulo. No branch main, este arquivo
+# vem vazio para o aluno preencher seguindo a LICAO.md.
 
 import pgzrun
 
@@ -13,8 +12,7 @@ gravidade = 0.5
 velocidade = 0
 
 cano = Actor("pipe", (350, 300))
-
-# NOVO NO CAPÍTULO 7: crie a variável morreu aqui
+morreu = False
 
 
 def draw():
@@ -24,19 +22,20 @@ def draw():
 
 
 def update():
-    global velocidade
-    velocidade = velocidade + gravidade
-    bird.y = bird.y + velocidade
-    cano.x = cano.x - 3
-    if cano.x < -50:
-        cano.x = 450
-    # NOVO NO CAPÍTULO 7: a colisão entra aqui — mas leia a lição!
-    # O update inteiro precisa ficar dentro de "if not morreu:"
+    global velocidade, morreu
+    if not morreu:
+        velocidade = velocidade + gravidade
+        bird.y = bird.y + velocidade
+        cano.x = cano.x - 3
+        if cano.x < -50:
+            cano.x = 450
+        if bird.colliderect(cano):
+            morreu = True
 
 
 def on_key_down(key):
     global velocidade
-    if key == keys.SPACE:
+    if key == keys.SPACE and not morreu:
         velocidade = -8
 
 

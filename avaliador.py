@@ -67,6 +67,9 @@ class Avaliador:
         loaders.set_root(mod.__file__)
         # O display precisa existir ANTES de carregar imagens (convert_alpha)
         pygame.display.set_mode((100, 100))
+        # Se o aluno usar "import pgzrun" + pgzrun.go(), o go() vira no-op aqui:
+        # quem manda no loop de teste é o avaliador, não o pgzero.
+        sys._pgzrun = True
         mod.__dict__.update(builtins.__dict__)
         try:
             exec(code, mod.__dict__)

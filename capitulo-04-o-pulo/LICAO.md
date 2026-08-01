@@ -77,8 +77,10 @@ def on_key_down(key):
 ## ▶️ Rodando o jogo
 
 ```
-pgzrun jogo.py
+python jogo.py
 ```
+
+(ou `pgzrun jogo.py`, ou F5 no IDLE, ou duplo clique em `jogar.bat` no Windows)
 
 Aperte ESPAÇO várias vezes seguidas e mantenha o pássaro voando.
 PARABÉNS — você está jogando o seu próprio jogo! 🎮

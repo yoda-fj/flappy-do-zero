@@ -2,6 +2,8 @@
 # Código dos Capítulos 1 e 2 (prontos) + suas novas linhas.
 # Siga a LICAO.md e complete os lugares marcados com NOVO.
 
+import pgzrun
+
 WIDTH = 400
 HEIGHT = 600
 
@@ -14,3 +16,6 @@ def draw():
 
 
 # NOVO NO CAPÍTULO 3: crie a função update() aqui embaixo
+
+
+pgzrun.go()

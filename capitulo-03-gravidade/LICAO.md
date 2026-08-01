@@ -37,8 +37,10 @@ def update():
 ## ▶️ Rodando o jogo
 
 ```
-pgzrun jogo.py
+python jogo.py
 ```
+
+(ou `pgzrun jogo.py`, ou F5 no IDLE, ou duplo clique em `jogar.bat` no Windows)
 
 O pássaro despenca e some por baixo da tela! No próximo capítulo vamos
 dar a ele um jeito de lutar contra a gravidade (o pulo).

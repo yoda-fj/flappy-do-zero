@@ -14,10 +14,22 @@ palco onde tudo vai acontecer!
 
 ## ✍️ Passo a passo
 
-Abra o arquivo `jogo.py` e digite o código abaixo.
+Abra o arquivo `jogo.py` e digite o código abaixo **no lugar marcado**
+(entre o `import pgzrun` e o `pgzrun.go()`, que já estão no arquivo).
 **Digite você mesmo, não copie e cole!** É digitando que o cérebro aprende.
 
-### As duas primeiras linhas — o tamanho da janela
+### A primeira linha — o motor do jogo (já está no arquivo)
+
+```python
+import pgzrun
+```
+
+- `import` traz uma caixa de ferramentas pronta para dentro do seu arquivo.
+- `pgzrun` é o **motor** do jogo: é ele que cria a janela, chama o draw
+  60 vezes por segundo, lê o teclado... Sem essa linha, seu arquivo é
+  só texto; com ela, vira um jogo.
+
+### As duas primeiras linhas DE CÓDIGO — o tamanho da janela
 
 ```python
 WIDTH = 400
@@ -57,15 +69,27 @@ def draw():
   - `(0, 0, 0)` → preto
   - `(255, 255, 255)` → branco
 
+### A última linha — o botão de ligar (já está no arquivo)
+
+```python
+pgzrun.go()
+```
+
+- Tudo que escrevemos até aqui é só a **receita** do jogo. Esta linha
+  aperta o botão de LIGAR: o motor começa a rodar e a janela abre.
+- Ela precisa ser sempre a **última linha** do arquivo. Tudo que você
+  criar nos próximos capítulos entra ANTES dela.
+
 ## ▶️ Rodando o jogo
 
 No terminal, dentro desta pasta, digite:
 
 ```
-pgzrun jogo.py
+python jogo.py
 ```
 
-(ou dê duplo clique no arquivo `jogar.bat`)
+Também funciona: `pgzrun jogo.py`, apertar F5 no IDLE, ou dar duplo
+clique no arquivo `jogar.bat` (no Windows).
 
 Você deve ver uma janela azul-céu. Ela fica aberta até você fechar.
 

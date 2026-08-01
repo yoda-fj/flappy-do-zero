@@ -1,5 +1,7 @@
 # 🐤 Capítulo 4 — GABARITO (só olhe depois de tentar!)
 
+import pgzrun
+
 WIDTH = 400
 HEIGHT = 600
 
@@ -23,3 +25,6 @@ def on_key_down(key):
     global velocidade
     if key == keys.SPACE:
         velocidade = -8
+
+
+pgzrun.go()

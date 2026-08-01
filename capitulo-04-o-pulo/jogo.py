@@ -3,6 +3,8 @@
 # ATENÇÃO: neste capítulo você vai SUBSTITUIR o update do capítulo 3!
 # Siga a LICAO.md e complete os lugares marcados com NOVO.
 
+import pgzrun
+
 WIDTH = 400
 HEIGHT = 600
 
@@ -21,3 +23,6 @@ def draw():
 
 
 # NOVO NO CAPÍTULO 4: crie a função on_key_down() aqui embaixo
+
+
+pgzrun.go()

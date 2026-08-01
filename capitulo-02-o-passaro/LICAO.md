@@ -30,6 +30,8 @@ bird = Actor("bird", (100, 300))
   borda esquerda) e **y = 300** (distância do TOPO da tela).
 - ⚠️ Atenção: no computador, o **y cresce para BAIXO**! É o contrário da
   aula de matemática. y = 0 é o topo da tela, y = 600 é lá embaixo.
+- Lembrete: o `import pgzrun` na primeira linha e o `pgzrun.go()` na
+  última são o motor e o botão de ligar (capítulo 1). Nunca apague os dois!
 
 ### Desenhando o pássaro (dentro do draw)
 
@@ -48,8 +50,10 @@ def draw():
 ## ▶️ Rodando o jogo
 
 ```
-pgzrun jogo.py
+python jogo.py
 ```
+
+(ou `pgzrun jogo.py`, ou F5 no IDLE, ou duplo clique em `jogar.bat` no Windows)
 
 Um pássaro amarelo parado no céu azul. Ele ainda não se mexe — isso é
 assunto do próximo capítulo!

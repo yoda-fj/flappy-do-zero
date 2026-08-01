@@ -91,7 +91,9 @@ lembre de ativar o venv (`.venv\Scripts\activate`) antes de rodar
 - Abra a pasta `capitulo-01-a-janela` e leia o arquivo `LICAO.md`
 - Para escrever o código, qualquer editor serve: o **IDLE** já vem
   instalado com o Python; **VS Code** é outra boa opção
-- Para rodar o jogo: duplo clique em `jogar.bat` (ou `pgzrun jogo.py`)
+- Para rodar o jogo: `python jogo.py` dentro da pasta do capítulo
+  (também funciona: `pgzrun jogo.py`, F5 no IDLE, ou duplo clique em
+  `jogar.bat` no Windows)
 - Para corrigir o capítulo: duplo clique em `testar.bat` (ou `python teste.py`)
 
 ## Dicas para os pais

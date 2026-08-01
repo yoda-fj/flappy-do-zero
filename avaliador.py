@@ -106,11 +106,15 @@ class Avaliador:
         for _ in range(n):
             update(dt) if com_dt else update()
 
-    def apertar_espaco(self):
-        """Simula o aluno apertando a tecla ESPAÇO."""
+    def apertar(self, tecla):
+        """Simula o aluno apertando uma tecla (ex.: self.jogo.keys.R)."""
         handler = getattr(self.jogo, "on_key_down", None)
         if handler:
-            handler(self.jogo.keys.SPACE)
+            handler(tecla)
+
+    def apertar_espaco(self):
+        """Simula o aluno apertando a tecla ESPAÇO."""
+        self.apertar(self.jogo.keys.SPACE)
 
     def desenhar(self):
         """Roda o draw() do aluno. Registra falha se der erro."""
@@ -147,10 +151,11 @@ class Avaliador:
         if acertos == total:
             print(f"🎉 PARABÉNS! Capítulo {self.capitulo} completo ({acertos}/{total})!")
             print(f"   Progresso: {self.capitulo} de {self.total} capítulos do jogo.")
-            if self.capitulo < 4:
+            if self.capitulo < self.total:
                 print("   Próximo passo: abra a pasta do próximo capítulo e leia a LICAO.md")
             else:
-                print("   Você já tem um mini-Flappy funcionando! 🎮")
+                print("   🏆 CURSO COMPLETO! Você programou um Flappy Bird inteiro!")
+                print("   Compartilhe o jogo com a família — e invente suas próprias fases!")
             sys.exit(0)
         else:
             print(f"Quase lá! {acertos} de {total} verificações passaram.")

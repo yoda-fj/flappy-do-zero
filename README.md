@@ -40,7 +40,16 @@ igual ao gabarito. Se a criança resolver do jeito dela e funcionar, passa.
 | 2 | O pássaro aparece (Actor, coordenadas) | ✅ pronto |
 | 3 | A gravidade (update, variáveis que mudam) | ✅ pronto |
 | 4 | O pulo (teclado, if, velocidade) | ✅ pronto |
-| 5–10 | Canos, colisão, pontos, game over, polimento | 📋 ver PLANO.md |
+| 5 | O primeiro cano (vários Actors, ordem do draw) | ✅ pronto |
+| 6 | Canos em movimento (eixo x, teletransporte) | ✅ pronto |
+| 7 | Colisão (colliderect, booleanos, not) | ✅ pronto |
+| 8 | Pontuação (contador, str, texto na tela) | ✅ pronto |
+| 9 | Game over e recomeço (funções próprias, reset) | ✅ pronto |
+| 10 | O grande final (cano duplo, random, regressão) | ✅ pronto |
+
+**Branch `solucao`:** versão com o `jogo.py` de cada capítulo já preenchido,
+para os pais verem o jogo pronto:
+<https://github.com/yoda-fj/flappy-do-zero/archive/refs/heads/solucao.zip>
 
 ## 🪟 Instalação no Windows (guia para os pais)
 

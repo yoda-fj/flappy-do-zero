@@ -7,7 +7,7 @@ Linguagem: **Python** com **Pygame Zero**.
 
 ## Como o curso funciona
 
-- O jogo é dividido em **10 capítulos pequenos**. Cada capítulo adiciona
+- O jogo é dividido em **13 capítulos pequenos**. Cada capítulo adiciona
   UMA coisa: a janela, o pássaro, a gravidade, o pulo, os canos...
 - Cada capítulo tem uma pasta com:
   - **`LICAO.md`** — a lição, explicando cada linha de código
@@ -46,6 +46,9 @@ igual ao gabarito. Se a criança resolver do jeito dela e funcionar, passa.
 | 8 | Pontuação (contador, str, texto na tela) | ✅ pronto |
 | 9 | Game over e recomeço (funções próprias, reset) | ✅ pronto |
 | 10 | O grande final (cano duplo, random, regressão) | ✅ pronto |
+| 11 | A tela inicial (estados do jogo, and, elif) | ✅ pronto |
+| 12 | Cenário com parallax (grama, nuvens, camadas) | ✅ pronto |
+| 13 | O recorde (variáveis que sobrevivem ao recomeço, >) | ✅ pronto |
 
 **Branch `solucao`:** versão com o `jogo.py` de cada capítulo já preenchido,
 para os pais verem o jogo pronto:
@@ -125,6 +128,6 @@ flappy-do-zero/
 ├── capitulo-03-gravidade/
 ├── capitulo-04-o-pulo/
 ├── ferramentas/          ← scripts de manutenção do curso
-├── PLANO.md              ← roadmap dos capítulos 5–10
+├── PLANO.md              ← roadmap dos capítulos 5–13
 └── requirements.txt
 ```

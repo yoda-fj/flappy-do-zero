@@ -20,6 +20,9 @@ CAPITULOS_COM_PASSARO = [
     "capitulo-08-pontuacao",
     "capitulo-09-game-over",
     "capitulo-10-o-grande-final",
+    "capitulo-11-tela-inicial",
+    "capitulo-12-cenario-parallax",
+    "capitulo-13-o-recorde",
 ]
 
 CAPITULOS_COM_CANO = [
@@ -29,6 +32,14 @@ CAPITULOS_COM_CANO = [
     "capitulo-08-pontuacao",
     "capitulo-09-game-over",
     "capitulo-10-o-grande-final",
+    "capitulo-11-tela-inicial",
+    "capitulo-12-cenario-parallax",
+    "capitulo-13-o-recorde",
+]
+
+CAPITULOS_COM_CENARIO = [
+    "capitulo-12-cenario-parallax",
+    "capitulo-13-o-recorde",
 ]
 
 
@@ -69,6 +80,40 @@ def gerar_cano(caminho):
     print("criado:", caminho)
 
 
+def gerar_grama(caminho):
+    """Faixa de grama de 400x60 para o chão (capítulo 12).
+
+    Duas cópias lado a lado cobrem a tela; a borda de cima tem tufinhos
+    em zigue-zague para dar textura.
+    """
+    img = Image.new("RGBA", (400, 60), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    verde = (85, 170, 60, 255)
+    verde_escuro = (60, 130, 45, 255)
+    # faixa principal + sombra embaixo
+    d.rectangle((0, 10, 399, 59), fill=verde)
+    d.rectangle((0, 45, 399, 59), fill=verde_escuro)
+    # tufinhos triangulares na borda de cima
+    for x in range(0, 400, 16):
+        d.polygon([(x, 12), (x + 8, 0), (x + 16, 12)], fill=verde)
+    img.save(caminho)
+    print("criado:", caminho)
+
+
+def gerar_nuvem(caminho):
+    """Nuvem fofinha de 140x70 (três elipses brancas sobrepostas)."""
+    img = Image.new("RGBA", (140, 70), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    branco = (255, 255, 255, 255)
+    sombra = (230, 240, 250, 255)
+    d.ellipse((10, 25, 80, 65), fill=branco)
+    d.ellipse((50, 10, 120, 60), fill=branco)
+    d.ellipse((30, 20, 110, 68), fill=branco)
+    d.ellipse((25, 50, 115, 68), fill=sombra)  # barriguinha sombreada
+    img.save(caminho)
+    print("criado:", caminho)
+
+
 def main():
     for capitulo in CAPITULOS_COM_PASSARO:
         pasta = os.path.join(RAIZ, capitulo, "images")
@@ -78,6 +123,11 @@ def main():
         pasta = os.path.join(RAIZ, capitulo, "images")
         os.makedirs(pasta, exist_ok=True)
         gerar_cano(os.path.join(pasta, "pipe.png"))
+    for capitulo in CAPITULOS_COM_CENARIO:
+        pasta = os.path.join(RAIZ, capitulo, "images")
+        os.makedirs(pasta, exist_ok=True)
+        gerar_grama(os.path.join(pasta, "grass.png"))
+        gerar_nuvem(os.path.join(pasta, "cloud.png"))
 
 
 if __name__ == "__main__":

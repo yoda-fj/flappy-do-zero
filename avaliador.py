@@ -27,7 +27,7 @@ import pgzero.game
 
 
 class Avaliador:
-    def __init__(self, titulo, capitulo, total=10):
+    def __init__(self, titulo, capitulo, total=13):
         self.titulo = titulo
         self.capitulo = capitulo
         self.total = total

@@ -1,4 +1,4 @@
-# 📋 PLANO — Capítulos 5 a 10
+# 📋 PLANO — Capítulos 5 a 13
 
 Filosofia do curso (vale para todos os capítulos):
 
@@ -61,6 +61,46 @@ Filosofia do curso (vale para todos os capítulos):
 - **Testes:** existe um buraco entre os canos; o buraco muda de altura;
   tudo dos capítulos anteriores continua funcionando (teste de regressão!)
 - **Final:** 🏆 certificado "Eu programei meu primeiro jogo"
+
+## Capítulo 11 — A tela inicial ✅ implementado
+- **Conceito novo:** estado do jogo (variável `comecou`); `and` no if;
+  if/elif/else dando três empregos para a mesma tecla
+- **Código novo:** `comecou = False`; update vira `if comecou and not morreu:`;
+  draw mostra título quando não começou; ESPAÇO: começa / joga de novo / pula;
+  `recomecar()` liga `comecou = True`
+- **Testes:** mundo congelado antes do começo (bird.y e cano.x não mudam);
+  título visível (pixels na faixa do título); ESPAÇO começa; gravidade volta;
+  pulo, colisão e R como regressão
+- **Erro clássico:** esquecer `comecou` no `global` do on_key_down
+  (jogo nunca começa)
+
+## Capítulo 12 — Cenário com parallax ✅ implementado
+- **Conceito novo:** parallax (camadas em velocidades diferentes);
+  duas cópias da mesma imagem para chão infinito
+- **Código novo:** `grama1/grama2` (400px de largura, y=570) e
+  `nuvem1/nuvem2`; grama anda -3 (com os canos), nuvem -1;
+  teletransportes: grama -200→600, nuvem -70→470; draw: céu → nuvens →
+  canos → pássaro → grama → textos
+- **Imagens novas:** `images/grass.png` e `images/cloud.png`
+  (ferramentas/gerar_imagens.py)
+- **Testes:** atores por nome de imagem (`actor.image`); medição real das
+  velocidades (grama > nuvem); teletransporte dos dois; pixel verde no pé
+  da tela; regressão de pontos/colisão/recomeço
+- **Erro clássico:** nuvem na mesma velocidade da grama (sem parallax)
+
+## Capítulo 13 — O recorde ✅ implementado
+- **Conceito novo:** variáveis que SOBREVIVEM ao recomeço (recorde não
+  entra no recomecar); comparação com `>`; variável bandeira
+  (`novo_recorde`)
+- **Código novo:** `recorde = 0` e `novo_recorde = False`; na morte:
+  `if pontos > recorde: recorde = pontos; novo_recorde = True`; draw do
+  game over mostra "NOVO RECORDE!" (amarelo) ou "Recorde: X"; recorde
+  também aparece na tela inicial quando > 0
+- **Testes:** três partidas simuladas em sequência — recorde vira 3,
+  sobrevive ao recomeço, não desce com 1 ponto, sobe para 7 com festa
+  amarela na tela (pixel amarelo na faixa do texto); regressão de
+  recomeço e pulo
+- **Erro clássico:** zerar o recorde dentro do recomecar()
 
 ---
 

@@ -1,6 +1,4 @@
-# 🐤 MEU JOGO — Capítulo 6: Canos em movimento
-# Código dos capítulos anteriores (pronto) + suas novas linhas.
-# Siga a LICAO.md e complete os lugares marcados com NOVO.
+# 🐤 Capítulo 6 — GABARITO (só olhe depois de tentar!)
 
 import pgzrun
 
@@ -24,7 +22,9 @@ def update():
     global velocidade
     velocidade = velocidade + gravidade
     bird.y = bird.y + velocidade
-    # NOVO NO CAPÍTULO 6: mova o cano e faça ele voltar (2 linhas + if)
+    cano.x = cano.x - 3
+    if cano.x < -50:
+        cano.x = 450
 
 
 def on_key_down(key):

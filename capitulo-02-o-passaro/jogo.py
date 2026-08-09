@@ -1,18 +1,16 @@
-# 🐤 MEU JOGO — Capítulo 2: O pássaro aparece
-# Código do Capítulo 1 (pronto) + suas novas linhas.
-# Siga a LICAO.md e complete os lugares marcados com NOVO.
+# 🐤 Capítulo 2 — GABARITO (só olhe depois de tentar!)
 
 import pgzrun
 
 WIDTH = 400
 HEIGHT = 600
 
-# NOVO NO CAPÍTULO 2: crie o pássaro aqui (a lição mostra como)
+bird = Actor("bird", (100, 300))
 
 
 def draw():
     screen.fill((135, 206, 235))
-    # NOVO NO CAPÍTULO 2: desenhe o pássaro aqui
+    bird.draw()
 
 
 pgzrun.go()

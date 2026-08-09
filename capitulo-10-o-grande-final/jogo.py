@@ -1,10 +1,7 @@
-# 🐤 MEU JOGO — Capítulo 10: O grande final
-# Código dos capítulos anteriores (pronto) + suas novas linhas.
-# ATENÇÃO: o cano único vira DOIS canos neste capítulo — a lição explica.
-# Siga a LICAO.md e complete os lugares marcados com NOVO.
+# 🐤 Capítulo 10 — GABARITO (só olhe depois de tentar!)
 
 import pgzrun
-# NOVO NO CAPÍTULO 10: importe a caixa de ferramentas de sorteio aqui
+import random
 
 WIDTH = 400
 HEIGHT = 600
@@ -13,29 +10,34 @@ bird = Actor("bird", (100, 300))
 gravidade = 0.5
 velocidade = 0
 
-cano = Actor("pipe", (350, 300))
+BURACO = 180
+cano_baixo = Actor("pipe", (350, 590))
+cano_cima = Actor("pipe", (350, 10))
+cano_cima.angle = 180
+
 morreu = False
 pontos = 0
 
-# NOVO NO CAPÍTULO 10: apague o cano único acima e crie no lugar:
-# a constante BURACO, o cano_baixo e o cano_cima (lição mostra como)
 
-
-# NOVO NO CAPÍTULO 10: crie aqui a função sortear_canos(x)
+def sortear_canos(x):
+    centro = random.randint(230, 370)
+    cano_baixo.pos = (x, centro + BURACO / 2 + 200)
+    cano_cima.pos = (x, centro - BURACO / 2 - 200)
 
 
 def recomecar():
     global velocidade, pontos, morreu
     bird.y = 300
     velocidade = 0
-    cano.x = 350
+    sortear_canos(350)
     pontos = 0
     morreu = False
 
 
 def draw():
     screen.fill((135, 206, 235))
-    cano.draw()
+    cano_baixo.draw()
+    cano_cima.draw()
     bird.draw()
     screen.draw.text(str(pontos), (180, 30), fontsize=60, color="white")
     if morreu:
@@ -48,11 +50,12 @@ def update():
     if not morreu:
         velocidade = velocidade + gravidade
         bird.y = bird.y + velocidade
-        cano.x = cano.x - 3
-        if cano.x < -50:
-            cano.x = 450
+        cano_baixo.x = cano_baixo.x - 3
+        cano_cima.x = cano_cima.x - 3
+        if cano_baixo.x < -50:
+            sortear_canos(450)
             pontos = pontos + 1
-        if bird.colliderect(cano):
+        if bird.colliderect(cano_baixo) or bird.colliderect(cano_cima):
             morreu = True
 
 

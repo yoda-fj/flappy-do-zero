@@ -1,7 +1,4 @@
-# 🐤 MEU JOGO — Capítulo 4: O pulo
-# Código dos Capítulos 1 e 2 (prontos) + suas novas linhas.
-# ATENÇÃO: neste capítulo você vai SUBSTITUIR o update do capítulo 3!
-# Siga a LICAO.md e complete os lugares marcados com NOVO.
+# 🐤 Capítulo 4 — GABARITO (só olhe depois de tentar!)
 
 import pgzrun
 
@@ -9,8 +6,8 @@ WIDTH = 400
 HEIGHT = 600
 
 bird = Actor("bird", (100, 300))
-
-# NOVO NO CAPÍTULO 4: crie as variáveis gravidade e velocidade aqui
+gravidade = 0.5
+velocidade = 0
 
 
 def draw():
@@ -18,11 +15,16 @@ def draw():
     bird.draw()
 
 
-# NOVO NO CAPÍTULO 4: crie a função update() aqui embaixo
-# (ela é DIFERENTE da do capítulo 3 — a lição explica por quê)
+def update():
+    global velocidade
+    velocidade = velocidade + gravidade
+    bird.y = bird.y + velocidade
 
 
-# NOVO NO CAPÍTULO 4: crie a função on_key_down() aqui embaixo
+def on_key_down(key):
+    global velocidade
+    if key == keys.SPACE:
+        velocidade = -8
 
 
 pgzrun.go()

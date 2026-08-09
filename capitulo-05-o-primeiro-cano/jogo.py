@@ -1,6 +1,4 @@
-# 🐤 MEU JOGO — Capítulo 5: O primeiro cano
-# Código dos capítulos anteriores (pronto) + suas novas linhas.
-# Siga a LICAO.md e complete os lugares marcados com NOVO.
+# 🐤 Capítulo 5 — GABARITO (só olhe depois de tentar!)
 
 import pgzrun
 
@@ -11,12 +9,12 @@ bird = Actor("bird", (100, 300))
 gravidade = 0.5
 velocidade = 0
 
-# NOVO NO CAPÍTULO 5: crie o cano aqui (a lição mostra como)
+cano = Actor("pipe", (350, 300))
 
 
 def draw():
     screen.fill((135, 206, 235))
-    # NOVO NO CAPÍTULO 5: desenhe o cano aqui (ANTES do pássaro!)
+    cano.draw()
     bird.draw()
 
 

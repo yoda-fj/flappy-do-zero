@@ -1,6 +1,4 @@
-# 🐤 MEU JOGO — Capítulo 9: Game over e recomeço
-# Código dos capítulos anteriores (pronto) + suas novas linhas.
-# Siga a LICAO.md e complete os lugares marcados com NOVO.
+# 🐤 Capítulo 9 — GABARITO (só olhe depois de tentar!)
 
 import pgzrun
 
@@ -16,7 +14,13 @@ morreu = False
 pontos = 0
 
 
-# NOVO NO CAPÍTULO 9: crie aqui a função recomecar()
+def recomecar():
+    global velocidade, pontos, morreu
+    bird.y = 300
+    velocidade = 0
+    cano.x = 350
+    pontos = 0
+    morreu = False
 
 
 def draw():
@@ -24,7 +28,9 @@ def draw():
     cano.draw()
     bird.draw()
     screen.draw.text(str(pontos), (180, 30), fontsize=60, color="white")
-    # NOVO NO CAPÍTULO 9: mostre GAME OVER aqui, mas SÓ quando morreu
+    if morreu:
+        screen.draw.text("GAME OVER", center=(200, 250), fontsize=60, color="red")
+        screen.draw.text("Aperte R para recomecar", center=(200, 320), fontsize=30, color="white")
 
 
 def update():
@@ -44,7 +50,8 @@ def on_key_down(key):
     global velocidade
     if key == keys.SPACE and not morreu:
         velocidade = -8
-    # NOVO NO CAPÍTULO 9: adicione o if da tecla R aqui
+    if key == keys.R:
+        recomecar()
 
 
 pgzrun.go()

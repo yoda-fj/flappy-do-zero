@@ -1,7 +1,4 @@
-# 🐤 MEU JOGO — Capítulo 12: Cenário com parallax
-# Código dos capítulos anteriores (pronto) + suas novas linhas.
-# ATENÇÃO: este capítulo usa duas imagens novas (grass.png e cloud.png)
-# que já estão na pasta images/. Siga a LICAO.md e complete os NOVO.
+# 🐤 Capítulo 12 — GABARITO (só olhe depois de tentar!)
 
 import pgzrun
 import random
@@ -18,8 +15,10 @@ cano_baixo = Actor("pipe", (350, 590))
 cano_cima = Actor("pipe", (350, 10))
 cano_cima.angle = 180
 
-# NOVO NO CAPÍTULO 12: crie aqui grama1, grama2, nuvem1 e nuvem2
-# (a lição explica por que são DUAS de cada e as posições certas)
+grama1 = Actor("grass", (200, 570))
+grama2 = Actor("grass", (600, 570))
+nuvem1 = Actor("cloud", (120, 90))
+nuvem2 = Actor("cloud", (340, 160))
 
 comecou = False
 morreu = False
@@ -37,6 +36,8 @@ def recomecar():
     bird.y = 300
     velocidade = 0
     sortear_canos(350)
+    grama1.x = 200
+    grama2.x = 600
     pontos = 0
     morreu = False
     comecou = True
@@ -44,11 +45,13 @@ def recomecar():
 
 def draw():
     screen.fill((135, 206, 235))
-    # NOVO NO CAPÍTULO 12: desenhe as nuvens aqui (logo depois do céu)
+    nuvem1.draw()
+    nuvem2.draw()
     cano_baixo.draw()
     cano_cima.draw()
     bird.draw()
-    # NOVO NO CAPÍTULO 12: desenhe as gramas aqui (por cima dos canos!)
+    grama1.draw()
+    grama2.draw()
     if not comecou:
         screen.draw.text("FLAPPY DO ZERO", center=(200, 200), fontsize=50, color="white")
         screen.draw.text("Aperte ESPACO para comecar", center=(200, 280), fontsize=25, color="white")
@@ -66,11 +69,21 @@ def update():
         bird.y = bird.y + velocidade
         cano_baixo.x = cano_baixo.x - 3
         cano_cima.x = cano_cima.x - 3
-        # NOVO NO CAPÍTULO 12: mova as gramas (rápido) e as nuvens (devagar)
-        # e faça cada uma voltar para a direita quando sair da tela
+        grama1.x = grama1.x - 3
+        grama2.x = grama2.x - 3
+        nuvem1.x = nuvem1.x - 1
+        nuvem2.x = nuvem2.x - 1
         if cano_baixo.x < -50:
             sortear_canos(450)
             pontos = pontos + 1
+        if grama1.x < -200:
+            grama1.x = 600
+        if grama2.x < -200:
+            grama2.x = 600
+        if nuvem1.x < -70:
+            nuvem1.x = 470
+        if nuvem2.x < -70:
+            nuvem2.x = 470
         if bird.colliderect(cano_baixo) or bird.colliderect(cano_cima):
             morreu = True
 

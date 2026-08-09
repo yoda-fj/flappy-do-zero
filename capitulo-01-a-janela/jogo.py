@@ -1,10 +1,13 @@
-# 🐤 MEU JOGO — Capítulo 1: Acendendo a tela
-# Siga a LICAO.md e escreva seu código no lugar marcado.
-# Digite você mesmo, linha por linha!
+# 🐤 Capítulo 1 — GABARITO (só olhe depois de tentar!)
 
-import pgzrun  # o motor do jogo (a lição explica)
+import pgzrun  # o motor do jogo
 
-# ESCREVA SEU CÓDIGO AQUI (as variáveis e a função draw)
+WIDTH = 400
+HEIGHT = 600
 
 
-pgzrun.go()  # o botão de ligar — precisa ser sempre a última linha
+def draw():
+    screen.fill((135, 206, 235))
+
+
+pgzrun.go()  # o botão de ligar — precisa ser a última linha

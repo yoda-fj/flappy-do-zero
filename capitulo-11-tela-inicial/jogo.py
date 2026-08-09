@@ -1,6 +1,4 @@
-# 🐤 MEU JOGO — Capítulo 11: A tela inicial
-# Código dos capítulos anteriores (pronto) + suas novas linhas.
-# Siga a LICAO.md e complete os lugares marcados com NOVO.
+# 🐤 Capítulo 11 — GABARITO (só olhe depois de tentar!)
 
 import pgzrun
 import random
@@ -17,8 +15,7 @@ cano_baixo = Actor("pipe", (350, 590))
 cano_cima = Actor("pipe", (350, 10))
 cano_cima.angle = 180
 
-# NOVO NO CAPÍTULO 11: crie aqui a variável comecou (começa valendo False)
-
+comecou = False
 morreu = False
 pontos = 0
 
@@ -30,14 +27,13 @@ def sortear_canos(x):
 
 
 def recomecar():
-    global velocidade, pontos, morreu
+    global velocidade, pontos, morreu, comecou
     bird.y = 300
     velocidade = 0
     sortear_canos(350)
     pontos = 0
     morreu = False
-    # NOVO NO CAPÍTULO 11: quem recomeça já quer jogar — ligue o comecou aqui
-    # (não esqueça de avisar o global lá em cima!)
+    comecou = True
 
 
 def draw():
@@ -45,17 +41,19 @@ def draw():
     cano_baixo.draw()
     cano_cima.draw()
     bird.draw()
-    screen.draw.text(str(pontos), (180, 30), fontsize=60, color="white")
-    if morreu:
-        screen.draw.text("GAME OVER", center=(200, 250), fontsize=60, color="red")
-        screen.draw.text("Aperte ESPACO para jogar de novo", center=(200, 320), fontsize=25, color="white")
-    # NOVO NO CAPÍTULO 11: se o jogo NÃO começou, desenhe a tela inicial
-    # (título + "Aperte ESPACO para comecar") — a lição mostra o jeito
+    if not comecou:
+        screen.draw.text("FLAPPY DO ZERO", center=(200, 200), fontsize=50, color="white")
+        screen.draw.text("Aperte ESPACO para comecar", center=(200, 280), fontsize=25, color="white")
+    else:
+        screen.draw.text(str(pontos), (180, 30), fontsize=60, color="white")
+        if morreu:
+            screen.draw.text("GAME OVER", center=(200, 250), fontsize=60, color="red")
+            screen.draw.text("Aperte ESPACO para jogar de novo", center=(200, 320), fontsize=25, color="white")
 
 
 def update():
     global velocidade, morreu, pontos
-    if not morreu:
+    if comecou and not morreu:
         velocidade = velocidade + gravidade
         bird.y = bird.y + velocidade
         cano_baixo.x = cano_baixo.x - 3
@@ -68,9 +66,14 @@ def update():
 
 
 def on_key_down(key):
-    global velocidade
-    if key == keys.SPACE and not morreu:
-        velocidade = -8
+    global velocidade, comecou
+    if key == keys.SPACE:
+        if not comecou:
+            comecou = True
+        elif morreu:
+            recomecar()
+        else:
+            velocidade = -8
     if key == keys.R:
         recomecar()
 

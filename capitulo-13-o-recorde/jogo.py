@@ -1,6 +1,4 @@
-# 🐤 MEU JOGO — Capítulo 13: O recorde
-# Código dos capítulos anteriores (pronto) + suas novas linhas.
-# Siga a LICAO.md e complete os lugares marcados com NOVO.
+# 🐤 Capítulo 13 — GABARITO (só olhe depois de tentar!)
 
 import pgzrun
 import random
@@ -25,7 +23,8 @@ nuvem2 = Actor("cloud", (340, 160))
 comecou = False
 morreu = False
 pontos = 0
-# NOVO NO CAPÍTULO 13: crie aqui o recorde e o novo_recorde (os dois zerados)
+recorde = 0
+novo_recorde = False
 
 
 def sortear_canos(x):
@@ -35,7 +34,7 @@ def sortear_canos(x):
 
 
 def recomecar():
-    global velocidade, pontos, morreu, comecou
+    global velocidade, pontos, morreu, comecou, novo_recorde
     bird.y = 300
     velocidade = 0
     sortear_canos(350)
@@ -44,8 +43,7 @@ def recomecar():
     pontos = 0
     morreu = False
     comecou = True
-    # NOVO NO CAPÍTULO 13: desligue o novo_recorde aqui (mas NUNCA zere
-    # o recorde! ele precisa sobreviver ao recomeço)
+    novo_recorde = False
 
 
 def draw():
@@ -60,18 +58,21 @@ def draw():
     if not comecou:
         screen.draw.text("FLAPPY DO ZERO", center=(200, 200), fontsize=50, color="white")
         screen.draw.text("Aperte ESPACO para comecar", center=(200, 280), fontsize=25, color="white")
-        # NOVO NO CAPÍTULO 13: se já existe recorde, mostre ele na tela inicial
+        if recorde > 0:
+            screen.draw.text("Recorde: " + str(recorde), center=(200, 340), fontsize=30, color="white")
     else:
         screen.draw.text(str(pontos), (180, 30), fontsize=60, color="white")
         if morreu:
             screen.draw.text("GAME OVER", center=(200, 220), fontsize=60, color="red")
+            if novo_recorde:
+                screen.draw.text("NOVO RECORDE!", center=(200, 300), fontsize=40, color="yellow")
+            else:
+                screen.draw.text("Recorde: " + str(recorde), center=(200, 300), fontsize=30, color="white")
             screen.draw.text("Aperte ESPACO para jogar de novo", center=(200, 360), fontsize=25, color="white")
-            # NOVO NO CAPÍTULO 13: mostre "NOVO RECORDE!" ou "Recorde: X"
-            # entre o GAME OVER e o "Aperte ESPACO"
 
 
 def update():
-    global velocidade, morreu, pontos
+    global velocidade, morreu, pontos, recorde, novo_recorde
     if comecou and not morreu:
         velocidade = velocidade + gravidade
         bird.y = bird.y + velocidade
@@ -94,8 +95,9 @@ def update():
             nuvem2.x = 470
         if bird.colliderect(cano_baixo) or bird.colliderect(cano_cima):
             morreu = True
-            # NOVO NO CAPÍTULO 13: aqui, na hora exata da morte, compare
-            # os pontos com o recorde (a lição mostra o if completo)
+            if pontos > recorde:
+                recorde = pontos
+                novo_recorde = True
 
 
 def on_key_down(key):
